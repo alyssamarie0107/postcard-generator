@@ -1,0 +1,64 @@
+<!-- Alyssa Rodriguez-ECS 162-Daily Postcard Creator-->
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creator Display</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dancing+Script"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Homemade+Apple"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Long+Cang"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- HTML for header -->
+    <header>
+      <h1 id="title">Daily Postcard</h1>
+    </header>
+
+    <!-- HTML for main -->
+    <main>
+      <!-- HTML for postcard container -->
+      <div id="postcard-container">
+        <div class="imageWrapper">
+          <!-- image id to display on screen-->
+          <img id="serverImage" />
+        </div>
+
+        <!-- line-item-->
+        <div id="line"></div>
+
+        <!-- message-item-->
+        <!-- contenteditable = true makes message editable-->
+        <div id="message"></div>
+      </div>
+    </main>
+    <!-- end of main -->
+
+    <!-- HTML for footer -->
+    <footer>
+      <script src="display-script.js"></script>
+    </footer>
+    <!-- end of footer-->
+  </body>
+  <!-- end of body -->
+</html>
+<!-- end of html-->

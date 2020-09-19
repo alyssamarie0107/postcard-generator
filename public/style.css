@@ -1,0 +1,383 @@
+/* Alyssa Rodriguez-ECS 162-Daily Postcard Creator*/
+html {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* CSS for header*/
+h1#title {
+  display: flex;
+  /* dont allow to grow*/
+  flex-grow: 0;
+  font-family: "Dancing Script", cursive;
+  font-size: xx-large;
+  margin: auto;
+  padding-left: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  h1#title {
+    padding-left: 0;
+    justify-content: center;
+  }
+}
+
+/*CSS for main*/
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*CSS for postcard container*/
+div#postcard-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* positioned relative to its normal position*/
+  position: relative;
+  width: 40%;
+  flex: 1 1 auto;
+  padding: 25px;
+  /* centers the container*/
+  margin: auto;
+  border-radius: 10px;
+  background-color: #e6e2cf;
+}
+
+/*postcard for mobile devices (phones, 600px, and down)*/
+@media only screen and (max-width: 600px) {
+  div#postcard-container {
+    max-width: 300px;
+    min-width: 300px;
+    flex-direction: column;
+    overflow: hidden;
+  }
+}
+
+/*postcard for tablet devices (phones, 770px, and down)*/
+@media only screen and (max-width: 770px) {
+  div#postcard-container {
+    width: 70%;
+  }
+}
+
+div.imageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 40%;
+}
+
+/*postcard for mobile devices (phones, 600px, and down)*/
+@media only screen and (max-width: 600px) {
+  div.imageWrapper {
+    width: auto;
+  }
+}
+
+img#serverImage {
+  width: 100%;
+}
+
+div#controls-item {
+  display: flex;
+  margin: auto;
+  /* don't take up any extra space*/
+  flex-grow: 0;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-style: dashed;
+  border-width: thin;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+  align-self: flex-start;
+  overflow: hidden;
+}
+
+/*postcard for mobile devices (phones, 600px, and down)*/
+@media only screen and (max-width: 600px) {
+  div#controls-item {
+    width: auto;
+  }
+}
+
+/*postcard for tablet devices (phones, 770px, and down)*/
+@media only screen and (max-width: 770px) {
+  div#controls-item{
+  width:auto;
+  }
+}
+
+
+input#imageChooser {
+  display: none;
+}
+
+div#line {
+  border-left: 0;
+  border-width: thin;
+  border-style: solid;
+}
+
+/*adjust line for mobile view */
+@media only screen and (max-width: 600px) {
+  div#line {
+    margin-top: 10px;
+  }
+}
+
+div#message {
+  display:flex;
+  margin: 5px;
+  margin-left: 10px;
+  font-family: "Indie Flower";
+  /* take up one share of any extra space*/
+  width: 50%;
+  flex-grow:1;
+  min-height: 10vh;
+  flex-wrap: wrap;
+}
+
+/*message for mobile devices (phones, 600px, and down)*/
+@media only screen and (max-width: 600px) {
+  div#message {
+    flex: 1;
+    margin:auto;
+    width: 90%;
+    margin-top: 10px;
+    min-height:20vh;
+  }
+}
+
+/*CSS footer*/
+/*CSS for options container*/
+div.options-container {
+  display: flex;
+  flex-shrink: 0;
+  /*defines ability for flex item to shrink if necessary*/
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 30px;
+  width: 40%;
+  margin: auto;
+  align-content: center;
+}
+
+/*adjust options container for mobile view */
+@media only screen and (max-width: 600px) {
+  div.options-container {
+    flex-direction: column;
+    max-width: 300px;
+    min-width: 300px;
+    overflow:hidden;
+  }
+}
+
+/*postcard for tablet devices (phones, 770px, and down)*/
+@media only screen and (max-width: 770px) {
+  div.options-container{
+    width: 60%;
+  }
+}
+
+/* "choose your ___"*/
+h4.choose {
+  font-family: sans-serif;
+  font-weight: normal;
+  margin-bottom: 15px;
+  max-width: 160px;
+}
+
+/*choose headings for mobile devices (phones, 600px, and down)*/
+@media only screen and (max-width: 600px) {
+  h4.choose{
+  padding-top:10px;
+  }
+}
+
+/* for font options */
+label.font-container {
+  display: block;
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* Hide the browser's default radio button */
+label.font-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* make the diamonds as custom radio button*/
+span.checkmark:before {
+  content: "\25C7";
+}
+
+/*postion diamond radio button to the left of font*/
+span.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*when the radio is checked, change the radio button to a diff. unicode symbol*/
+label.font-container input:checked ~ span.checkmark:before {
+  content: "\2756";
+}
+
+/* apply different fonts for font options*/
+label.font-container:nth-of-type(1) {
+  font-family: "Indie Flower", cursive;
+}
+
+label.font-container:nth-of-type(2) {
+  font-family: "Dancing Script", cursive;
+}
+
+label.font-container:nth-of-type(3) {
+  font-family: "Long Cang", cursive;
+}
+
+label.font-container:nth-of-type(4) {
+  font-family: "Homemade Apple", cursive;
+}
+
+/*CSS for color options*/
+/* used radio buttons for font options but couldn't figure it out for
+color options so used reg. buttons*/
+div.color-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 160px;
+}
+
+/*adjust color container for mobile view */
+@media only screen and (max-width: 600px) {
+  div.color-container {
+    max-width: 250px;
+  }
+}
+
+/* make the square shape of the color boxes*/
+button.colorButtons {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+/* when a color is selected, should have a solid border*/
+button.colorButtons:focus {
+  border-style: solid;
+  border-width: thin;
+  border-color: #000000;
+  /* removes default blue border of a button when you click it*/
+  outline: 0;
+}
+
+/* :hover used to select elements when you mouse over them*/
+button.colorButtons:hover {
+  border-style: dashed;
+  border-width: thin;
+  border-color: #000000;
+}
+
+/* apply different color for color options*/
+button.colorButtons:nth-of-type(1) {
+  background-color: #e6e2cf;
+}
+
+button.colorButtons:nth-of-type(2) {
+  background-color: #dbcaac;
+}
+
+button.colorButtons:nth-of-type(3) {
+  background-color: #c9cbb3;
+}
+
+button.colorButtons:nth-of-type(4) {
+  background-color: #bbc9ca;
+}
+
+button.colorButtons:nth-of-type(5) {
+  background-color: #a6a5b5;
+}
+
+button.colorButtons:nth-of-type(6) {
+  background-color: #b5a6ab;
+  margin-top: 5px;
+}
+
+button.colorButtons:nth-of-type(7) {
+  background-color: #eccfcf;
+  margin-top: 5px;
+}
+
+button.colorButtons:nth-of-type(8) {
+  background-color: #eceeeb;
+  margin-top: 5px;
+}
+
+button.colorButtons:nth-of-type(9) {
+  background-color: #bab9b5;
+  margin-top: 5px;
+}
+
+/*adjust color buttons for mobile view */
+@media only screen and (max-width: 600px) {
+  button.colorButtons:nth-of-type(6),
+  button.colorButtons:nth-of-type(7),
+  button.colorButtons:nth-of-type(8) {
+    margin-top: 0px;
+  }
+}
+
+/*CSS for share postcard button*/
+button#sharePostcard {
+  display: flex;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  width: 75%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 33px;
+  margin-right: 40px;
+  font-weight: bold;
+  font-size: 12px;
+  font-family: sans-serif;
+  cursor: pointer;
+  background-color: #FFFFFF;
+}
+
+button#sharePostcard:focus {
+  outline: 0;
+}
+
+/*adjust share postcard button for mobile view */
+@media only screen and (max-width: 600px) {
+  button#sharePostcard {
+    width: 35%;
+  }
+}

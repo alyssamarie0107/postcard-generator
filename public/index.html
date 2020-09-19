@@ -1,0 +1,147 @@
+<!-- Alyssa Rodriguez-ECS 162-Daily Postcard Creator-->
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creator Display</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dancing+Script"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Homemade+Apple"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Long+Cang"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- HTML for header -->
+    <header>
+      <h1 id="title">Daily Postcard Creator</h1>
+    </header>
+
+    <!-- HTML for main -->
+    <main>
+      <!-- HTML for postcard container -->
+      <div id="postcard-container">
+        <div class="imageWrapper">
+          <!-- image id to display on screen-->
+          <img id="serverImage" />
+
+          <!--controls-item -->
+          <div id="controls-item">
+            <label id="choose-image" for="imageChooser"> Choose Image </label>
+            <input
+              type="file"
+              id="imageChooser"
+              accept="image/png, .jpeg, .jpg, image/gif"
+            />
+          </div>
+        </div>
+
+        <!-- line-item-->
+        <div id="line"></div>
+
+        <!-- message-item-->
+        <!-- contenteditable = true makes message editable-->
+        <div contenteditable="true" id="message">Write your message here!</div>
+      </div>
+    </main>
+    <!-- end of main -->
+
+    <!-- HTML for footer -->
+    <footer>
+      <!-- HTML for options container -->
+      <div class="options-container">
+        <!-- font options -->
+        <div>
+          <h4 class="choose">Choose your font</h4>
+
+          <!--radio buttons for font options-->
+          <label for="indie" class="font-container">
+            Indie Flower
+            <input
+              type="radio"
+              id="indie"
+              value="Indie Flower"
+              name="radioFont"
+              checked="true"
+            />
+            <span class="checkmark"></span>
+          </label>
+
+          <label for="dancing" class="font-container">
+            Dancing Script
+            <input
+              type="radio"
+              id="dancing"
+              value="Dancing Script"
+              name="radioFont"
+            />
+            <span class="checkmark"></span>
+          </label>
+
+          <label for="long" class="font-container">
+            Long Cang
+            <input type="radio" id="long" value="Long Cang" name="radioFont" />
+            <span class="checkmark"></span>
+          </label>
+
+          <label for="homemade" class="font-container">
+            Homemade Apple
+            <input
+              type="radio"
+              id="homemade"
+              value="Homemade Apple"
+              name="radioFont"
+            />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        <!-- color options -->
+        <div>
+          <h4 class="choose">Choose your color</h4>
+          <!-- buttons for color boxes-->
+          <div class="color-container">
+            <button class="colorButtons"></button>
+            <button class="colorButtons"></button>
+            <button class="colorButtons"></button>
+            <button class="colorButtons"></button>
+            <button class="colorButtons"></button>
+            <button class="colorButtons"></button>
+            <button class="colorButtons"></button>
+            <button class="colorButtons"></button>
+            <button class="colorButtons"></button>
+          </div>
+        </div>
+
+        <!-- share postcard button -->
+        <!-- this button should initiate an AJAX request-->
+        <!-- avoid forms, use a POST request where the body contains a JSON string desribing the photo,msg,font,etc. -->
+        <div>
+          <button id="sharePostcard">Share postcard</button>
+        </div>
+        <!-- end of postcard-container-->
+      </div>
+      <script src="creator-script.js"></script>
+    </footer>
+    <!-- end of footer-->
+  </body>
+  <!-- end of body -->
+</html>
+<!-- end of html-->
